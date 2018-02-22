@@ -33,11 +33,7 @@ function main() {
   const gl = initGL(canvas, {alpha:false});
   if (!gl)
     return;
-  
-  if (gl.getExtension('OES_standard_derivatives') === null) {
-    Controls.disableSpecular();
-  }
-  
+    
   const particles = new Particles(gl, 16, 16);
   const obstacles = new ObstacleMap(gl);
   const fluidifier = new Fluidify(gl);
