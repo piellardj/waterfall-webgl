@@ -203,7 +203,7 @@ class ObstacleMap {
    * @param {number} mousePosY in [0,1]
    */
   setMobileObstacle(gl, mousePosX, mousePosY) {    
-    this._addMobileShader.u["uMousePos"].value = [mousePosX, mousePosY];
+    this._addMobileShader.u["uMousePos"].value = [mousePosX, 1 - mousePosY];
     
     this._FBO.bind(gl, this._texture, null);
     
@@ -220,7 +220,7 @@ class ObstacleMap {
    * @param {number} mousePosY in [0,1]
    */
   addStaticObstacle(gl, mousePosX, mousePosY) {    
-    this._addStaticShader.u["uMousePos"].value = [mousePosX, mousePosY];
+    this._addStaticShader.u["uMousePos"].value = [mousePosX, 1 - mousePosY];
     
     this._FBO.bind(gl, this._staticTexture, null);
     

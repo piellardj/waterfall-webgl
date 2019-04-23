@@ -1,0 +1,20 @@
+{
+  "name": "pool-webgl",
+  "version": "1.0.0",
+  "homepage": "https://piellardj.github.io/pool-webgl",
+  "description": "WebGL Chaos Game implementation",
+  "main": "build/index.js",
+  "scripts": {
+    "build": "node src/generate-page.js",
+    "clean": "shx rm -rf docs/*",
+    "rebuild": "npm run clean && npm run build"
+  },
+  "author": "“Jérémie PIELLARD <jeremie.piellard@gmail.com> (https://github.com/piellardj)",
+  "repository": "github:piellardj/pool-webgl",
+  "license": "ISC",
+  "devDependencies": {
+    "fs-extra": "^7.0.1",
+    "shx": "^0.3.2",
+    "webpage-templates": "github:piellardj/webpage-templates"
+  }
+}

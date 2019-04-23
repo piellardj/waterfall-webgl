@@ -6,14 +6,18 @@
  * @param {object} flags
  */
 function initGL(canvas, flags) {
+  function setError(message) {
+    Demopage.setErrorMessage("webgl-support", message);
+  }
+
   let gl = canvas.getContext("webgl", flags);
   if (!gl) {
     gl = canvas.getContext("experimental-webgl", flags);
     if (!gl) {
-      alert("Your browser or device does not seem to support WebGL.");
+      setError("Your browser or device does not seem to support WebGL.");
       return null;
     }
-    alert("Your browser or device only supports experimental WebGL.\n" +
+    setError("Your browser or device only supports experimental WebGL.\n" +
       "The simulation may not run as expected.");
   }
     
@@ -29,7 +33,7 @@ function initGL(canvas, flags) {
 }
 
 function main() {
-  const canvas = document.getElementById("glcanvas");
+  const canvas = Canvas.getCanvas();
   const gl = initGL(canvas, {alpha:false});
   if (!gl)
     return;
@@ -40,21 +44,20 @@ function main() {
   
   /* The default rendering mode is blurred. */
   let fluidMode = true;
-  Controls.setFluidMode = (bool) => {
+  Parameters.setFluidMode = (bool) => {
     fluidMode = bool;
-    Controls.showFluidSection(bool);
+    Parameters.showFluidSection(bool);
   };
-  Controls.setFluidMode(true);
+  Parameters.setFluidMode(true);
 
   /* Bind the HTML inputs to the simulation */
-  Controls.bind(gl, canvas, particles, obstacles, fluidifier);
+  Parameters.bind(gl, canvas, particles, obstacles, fluidifier);
   
   /* Update the FPS indicator every second. */
   let instantFPS;
-  const fpsText = document.getElementById("fps-text");
   const updateFpsText = function() {
-    fpsText.textContent = instantFPS.toFixed(0);
-    };
+    Canvas.setIndicatorText("fps", instantFPS.toFixed(0));
+  };
   setInterval(updateFpsText, 1000);
   
   let lastUpdate = 0;
