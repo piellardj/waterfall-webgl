@@ -1,16 +1,15 @@
 {
-  "name": "pool-webgl",
+  "name": "waterfall-webgl",
   "version": "1.0.0",
-  "homepage": "https://piellardj.github.io/pool-webgl",
-  "description": "WebGL Chaos Game implementation",
-  "main": "build/index.js",
+  "homepage": "https://piellardj.github.io/waterfall-webgl",
+  "description": "WebGL particles simulation",
   "scripts": {
     "build": "node src/generate-page.js",
     "clean": "shx rm -rf docs/*",
     "rebuild": "npm run clean && npm run build"
   },
   "author": "“Jérémie PIELLARD <jeremie.piellard@gmail.com> (https://github.com/piellardj)",
-  "repository": "github:piellardj/pool-webgl",
+  "repository": "github:piellardj/waterfall-webgl",
   "license": "ISC",
   "devDependencies": {
     "fs-extra": "^7.0.1",

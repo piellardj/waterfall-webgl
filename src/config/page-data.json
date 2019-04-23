@@ -5,7 +5,7 @@
         "This project is a WebGL simulation of a waterfall running entirely on GPU. You can interact with the fluid with the mouse, and add obstacles with the left mouse button.",
         "It is essentially a particle system, with the particles independently falling and bouncing off obstacles. The cartoonish look is achieved by applying a blur and then a threshold to the particles."
     ],
-    "githubProjectName": "pool-webgl",
+    "githubProjectName": "waterfall-webgl",
     "additionalLinks": [
         {
             "href": "https://piellardj.github.io/waterfall-webgl2",
