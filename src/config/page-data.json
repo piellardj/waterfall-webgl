@@ -16,7 +16,7 @@
         "script/gl-utils.js",
         "script/particles.js",
         "script/obstacle-map.js",
-        "script/Parameters.js",
+        "script/parameters.js",
         "script/fluidify.js",
         "script/main.js"
     ],
