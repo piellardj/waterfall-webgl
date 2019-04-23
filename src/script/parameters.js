@@ -122,6 +122,7 @@ var Parameters = (function(){
     showFluidSection: function(show) {
       Controls.setVisibility("blur-range-id", show);
       Controls.setVisibility("threshold-range-id", show);
+      Controls.setVisibility("water-normals-checkbox-id", show);
       Controls.setVisibility("specular-checkbox-id", show);
     },
 
