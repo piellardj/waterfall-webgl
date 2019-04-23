@@ -156,10 +156,10 @@ class ObstacleMap {
     this.displayNormals = false;
     
     this.brushSize = [100 / width, 100 / height];
-    this.addStaticObstacle(gl, 0.5, 0.8);
+    this.addStaticObstacle(gl, 0.5, 0.2);
 
     this.brushSize = [50 / width, 50 / height];
-    this.addStaticObstacle(gl, 0.63, 0.6);
+    this.addStaticObstacle(gl, 0.63, 0.4);
 
     this.brushSize = [30 / width, 30 / height];
     this.addStaticObstacle(gl, 0.2, 0.5);
