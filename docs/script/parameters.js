@@ -141,24 +141,9 @@ var Parameters = (function(){
       Tabs.addObserver(MODE_CONTROL_ID, setMode);
       setMode(Tabs.getValues(MODE_CONTROL_ID));
     },
-
-    /**
-     * For hardware that doesn't support specularity, disables
-     * the specular check box.
-     */
-    disableSpecular: function() {
-      const checkbox = document.getElementById("specular-checkbox");
-      const label = document.getElementById("specular-label");
-      
-      checkbox.checked = false;
-      checkbox.disabled = "disabled";
-      label.style.color = "grey";
-      label.innerHTML = "not supported";
-    }
   };
   
   Object.defineProperty(visible, "bind", {writable: false});
-  Object.defineProperty(visible, "disableSpecular", {writable: false});
   Object.preventExtensions(visible);
   Object.seal(visible);
   
