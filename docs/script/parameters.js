@@ -86,11 +86,20 @@ var Parameters = (function(){
       const BRUSH_SIZE_CONTROL_ID = "radius-range-id";
       const updateBrushSize = function(sliderValue) {
         const value = sliderValue;
-        obstacles.brushSize = [value / canvas.clientWidth,
-          value / canvas.clientHeight];
-      }
+        obstacles.brushSize = [value / canvas.clientWidth, value / canvas.clientHeight];
+
+        const mousePos = Canvas.getMousePosition();
+        obstacles.setMobileObstacle(gl, mousePos[0], mousePos[1]);
+      };
+
       Range.addObserver(BRUSH_SIZE_CONTROL_ID, updateBrushSize);
       updateBrushSize(Range.getValue(BRUSH_SIZE_CONTROL_ID));
+
+      Canvas.Observers.mouseWheel.push(function(delta) {
+        const previousValue = Range.getValue(BRUSH_SIZE_CONTROL_ID);
+        Range.setValue(BRUSH_SIZE_CONTROL_ID, previousValue + 5 * delta);
+        updateBrushSize(Range.getValue(BRUSH_SIZE_CONTROL_ID));
+      });
     }
 
     {
