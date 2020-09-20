@@ -7,7 +7,7 @@
  */
 function initGL(canvas, flags) {
   function setError(message) {
-    Demopage.setErrorMessage("webgl-support", message);
+    Page.Demopage.setErrorMessage("webgl-support", message);
   }
 
   let gl = canvas.getContext("webgl", flags);
@@ -33,7 +33,7 @@ function initGL(canvas, flags) {
 }
 
 function main() {
-  const canvas = Canvas.getCanvas();
+  const canvas = Page.Canvas.getCanvas();
   const gl = initGL(canvas, {alpha:false});
   if (!gl)
     return;
@@ -56,7 +56,7 @@ function main() {
   /* Update the FPS indicator every second. */
   let instantFPS;
   const updateFpsText = function() {
-    Canvas.setIndicatorText("fps", instantFPS.toFixed(0));
+    Page.Canvas.setIndicatorText("fps", instantFPS.toFixed(0));
   };
   setInterval(updateFpsText, 1000);
   

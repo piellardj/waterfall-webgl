@@ -10,32 +10,32 @@ var Parameters = (function(){
     {
       const POINT_SIZE_CONTROL_ID = "point-size-range-id";
       const updatePointSize = (newSize) => { particles.pointSize = newSize; };
-      Range.addObserver(POINT_SIZE_CONTROL_ID, updatePointSize);
-      updatePointSize(Range.getValue(POINT_SIZE_CONTROL_ID));
+      Page.Range.addObserver(POINT_SIZE_CONTROL_ID, updatePointSize);
+      updatePointSize(Page.Range.getValue(POINT_SIZE_CONTROL_ID));
     }
     {
       const BLUR_CONTROL_ID = "blur-range-id";
       const updateBlur = (radius) => { fluidify.setKernelSize(gl, radius); };
-      Range.addObserver(BLUR_CONTROL_ID, updateBlur);
-      updateBlur(Range.getValue(BLUR_CONTROL_ID));
+      Page.Range.addObserver(BLUR_CONTROL_ID, updateBlur);
+      updateBlur(Page.Range.getValue(BLUR_CONTROL_ID));
     }
     {
       const THRESHOLD_CONTROL_ID = "threshold-range-id";
       const updateThreshold = (newValue) => { fluidify.threshold = newValue; };
-      Range.addObserver(THRESHOLD_CONTROL_ID, updateThreshold);
-      updateThreshold(Range.getValue(THRESHOLD_CONTROL_ID));
+      Page.Range.addObserver(THRESHOLD_CONTROL_ID, updateThreshold);
+      updateThreshold(Page.Range.getValue(THRESHOLD_CONTROL_ID));
     }
     {
       const NORMALS_CONTROL_ID = "water-normals-checkbox-id";
       const setWaterNormals = (show) => { fluidify.showNormals = show; };
-      Checkbox.addObserver(NORMALS_CONTROL_ID, setWaterNormals);
-      setWaterNormals(Checkbox.isChecked(NORMALS_CONTROL_ID));
+      Page.Checkbox.addObserver(NORMALS_CONTROL_ID, setWaterNormals);
+      setWaterNormals(Page.Checkbox.isChecked(NORMALS_CONTROL_ID));
     }
     {
       const SPECULAR_CONTROL_ID = "specular-checkbox-id";
       const updateSpecular = (enable) => { fluidify.specular = enable; };
-      Checkbox.addObserver(SPECULAR_CONTROL_ID, updateSpecular);
-      updateSpecular(Checkbox.isChecked(SPECULAR_CONTROL_ID));
+      Page.Checkbox.addObserver(SPECULAR_CONTROL_ID, updateSpecular);
+      updateSpecular(Page.Checkbox.isChecked(SPECULAR_CONTROL_ID));
     }
   }
 
@@ -57,30 +57,30 @@ var Parameters = (function(){
         const size = sizes[sliderValue];
         particles.reset(gl, size.width, size.height);
         
-        Canvas.setIndicatorText("number-of-particles", particles.nbParticles);
+        Page.Canvas.setIndicatorText("number-of-particles", particles.nbParticles);
       }
-      Range.addObserver(AMOUNT_CONTROL_ID, updateAmount);
-      updateAmount(Range.getValue(AMOUNT_CONTROL_ID));
+      Page.Range.addObserver(AMOUNT_CONTROL_ID, updateAmount);
+      updateAmount(Page.Range.getValue(AMOUNT_CONTROL_ID));
     }
 
     {
       const GRAVITY_CONTROL_ID = "gravity-range-id";
       const updateGravity = (newGravity) => { particles.acceleration =[0, -newGravity]; };
-      Range.addObserver(GRAVITY_CONTROL_ID, updateGravity);
-      updateGravity(Range.getValue(GRAVITY_CONTROL_ID));
+      Page.Range.addObserver(GRAVITY_CONTROL_ID, updateGravity);
+      updateGravity(Page.Range.getValue(GRAVITY_CONTROL_ID));
     }
     {
       const SPEED_CONTROL_ID = "speed-range-id";
       const updateSpeed = (newSpeed) => { particles.speed = newSpeed; };
-      Range.addObserver(SPEED_CONTROL_ID, updateSpeed);
-      updateSpeed(Range.getValue(SPEED_CONTROL_ID));
+      Page.Range.addObserver(SPEED_CONTROL_ID, updateSpeed);
+      updateSpeed(Page.Range.getValue(SPEED_CONTROL_ID));
     }
   }
 
   function bindObstaclesSection(gl, canvas, obstacles, fluidify) {
     const RESET_CONTROL_ID = "clear-button-id";
     const clear = () => { obstacles.reset(gl), false; };
-    Button.addObserver(RESET_CONTROL_ID, clear);
+    Page.Button.addObserver(RESET_CONTROL_ID, clear);
 
     {
       const BRUSH_SIZE_CONTROL_ID = "radius-range-id";
@@ -88,38 +88,38 @@ var Parameters = (function(){
         const value = sliderValue;
         obstacles.brushSize = [value / canvas.clientWidth, value / canvas.clientHeight];
 
-        const mousePos = Canvas.getMousePosition();
+        const mousePos = Page.Canvas.getMousePosition();
         obstacles.setMobileObstacle(gl, mousePos[0], mousePos[1]);
       };
 
-      Range.addObserver(BRUSH_SIZE_CONTROL_ID, updateBrushSize);
-      updateBrushSize(Range.getValue(BRUSH_SIZE_CONTROL_ID));
+      Page.Range.addObserver(BRUSH_SIZE_CONTROL_ID, updateBrushSize);
+      updateBrushSize(Page.Range.getValue(BRUSH_SIZE_CONTROL_ID));
 
-      Canvas.Observers.mouseWheel.push(function(delta) {
-        const previousValue = Range.getValue(BRUSH_SIZE_CONTROL_ID);
-        Range.setValue(BRUSH_SIZE_CONTROL_ID, previousValue + 5 * delta);
-        updateBrushSize(Range.getValue(BRUSH_SIZE_CONTROL_ID));
+      Page.Canvas.Observers.mouseWheel.push(function(delta) {
+        const previousValue = Page.Range.getValue(BRUSH_SIZE_CONTROL_ID);
+        Page.Range.setValue(BRUSH_SIZE_CONTROL_ID, previousValue + 5 * delta);
+        updateBrushSize(Page.Range.getValue(BRUSH_SIZE_CONTROL_ID));
       });
     }
 
     {
       const NORMALS_CONTROL_ID = "obstacles-normals-checkbox-id";
       const setWaterNormals = (show) => { obstacles.displayNormals  = show; };
-      Checkbox.addObserver(NORMALS_CONTROL_ID, setWaterNormals);
-      setWaterNormals(Checkbox.isChecked(NORMALS_CONTROL_ID));
+      Page.Checkbox.addObserver(NORMALS_CONTROL_ID, setWaterNormals);
+      setWaterNormals(Page.Checkbox.isChecked(NORMALS_CONTROL_ID));
     }
   }
 
   function bindMouse(gl, obstacles) {
-    Canvas.Observers.mouseMove.push(function (relativeX, relativeY) {
+    Page.Canvas.Observers.mouseMove.push(function (relativeX, relativeY) {
       obstacles.setMobileObstacle(gl, relativeX, relativeY);
-      if (Canvas.isMouseDown()) {
+      if (Page.Canvas.isMouseDown()) {
         obstacles.addStaticObstacle(gl, relativeX, relativeY);
       }
     });
 
-    Canvas.Observers.mouseDown.push(function() {
-      const relativePos = Canvas.getMousePosition();
+    Page.Canvas.Observers.mouseDown.push(function() {
+      const relativePos = Page.Canvas.getMousePosition();
       obstacles.addStaticObstacle(gl, relativePos[0], relativePos[1]);
     });
   }
@@ -129,10 +129,10 @@ var Parameters = (function(){
     setFluidMode: function(bool) {},
     
     showFluidSection: function(show) {
-      Controls.setVisibility("blur-range-id", show);
-      Controls.setVisibility("threshold-range-id", show);
-      Controls.setVisibility("water-normals-checkbox-id", show);
-      Controls.setVisibility("specular-checkbox-id", show);
+      Page.Controls.setVisibility("blur-range-id", show);
+      Page.Controls.setVisibility("threshold-range-id", show);
+      Page.Controls.setVisibility("water-normals-checkbox-id", show);
+      Page.Controls.setVisibility("specular-checkbox-id", show);
     },
 
     bind: function(gl, canvas, particles, obstacles, fluidify) {
@@ -148,8 +148,8 @@ var Parameters = (function(){
         this.showFluidSection(fluid);
         this.setFluidMode(fluid);
       };
-      Tabs.addObserver(MODE_CONTROL_ID, setMode);
-      setMode(Tabs.getValues(MODE_CONTROL_ID));
+      Page.Tabs.addObserver(MODE_CONTROL_ID, setMode);
+      setMode(Page.Tabs.getValues(MODE_CONTROL_ID));
     },
   };
   
