@@ -1,6 +1,5 @@
 {
   "name": "waterfall-webgl",
-  "version": "1.0.0",
   "homepage": "https://piellardj.github.io/waterfall-webgl",
   "description": "WebGL particles simulation",
   "scripts": {
