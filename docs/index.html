@@ -11,12 +11,17 @@
     <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
-    <link rel="stylesheet" type="text/css" href="css/page.css">
+    <link rel="stylesheet" type="text/css" href="css/page.css?v=2021-04-10T18%3A24%3A01.158Z">
   </head>
 
   <body>
     <header>
-      <a class="logo" href="https://piellardj.github.io"></a>
+      <a class="logo logo-animate-fill" href="https://piellardj.github.io" id="back-to-home-button" aria-label="Go to home">
+        <svg class="logo-icon" xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+          <g stroke-width="2">
+            <path fill="none" stroke-linejoin="round" d="M17.5,32h4.5v11h7v-7l1,-1h4l1,1v7h7v-11h4.5L32,16.5z" />
+        </svg>
+      </a>
     </header>
     <main>
       <div class="intro">
@@ -68,45 +73,111 @@
               <line x1="22" y1="10" x2="10" y2="22" stroke-linecap="round" stroke-width="2" />
             </svg>
           </label>
-
           <section class="controls-section">
             <h2>Particles</h2>
 
             <div class="controls-list">
               <div class="control" id="control-quantity-range-id">
                 <label>Quantity:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="0" max="9" value="3" step="1" class="slider" id="quantity-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="quantity-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-gravity-range-id">
                 <label>Gravity:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="10" max="300" value="100" step="1" class="slider" id="gravity-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="gravity-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-speed-range-id">
                 <label>Speed:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="0.1" max="1.9" value="1" step="0.02" class="slider" id="speed-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="speed-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </section>
           <hr />
-
           <section class="controls-section">
             <h2>Obstacles</h2>
 
             <div class="controls-list">
               <div class="control" id="control-radius-range-id">
                 <label>Radius:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="10" max="100" value="40" step="1" class="slider" id="radius-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="radius-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-obstacles-normals-checkbox-id">
@@ -122,7 +193,6 @@
             </div>
           </section>
           <hr />
-
           <section class="controls-section">
             <h2>Rendering</h2>
 
@@ -137,23 +207,74 @@
               </div>
               <div class="control" id="control-point-size-range-id">
                 <label>Point size:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="1" max="20" value="6" step="1" class="slider" id="point-size-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="point-size-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-blur-range-id">
                 <label>Blur:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="1" max="41" value="21" step="2" class="slider" id="blur-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="blur-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-threshold-range-id">
                 <label>Threshold:</label>
-                <div class="range">
+                <div class="range-container">
                   <input type="range" min="0" max="1" value="0.2" step="0.01" class="slider" id="threshold-range-id">
-                  <span class="tooltip"></span>
+                  <div class="range-skin-container">
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-left range-stub-left"></span>
+                    </div>
+                    <div class="range-progress">
+                      <div class="range-progress-left">
+                        <span class="range-bar range-bar-left"></span>
+                        <span class="range-handle"></span>
+                        <output for="threshold-range-id" class="range-tooltip"></output>
+                      </div>
+                      <div class="range-progress-right">
+                        <span class="range-bar range-bar-right"></span>
+                      </div>
+                    </div>
+                    <div class="range-stub">
+                      <span class="range-bar range-bar-right range-stub-right"></span>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="control" id="control-water-normals-checkbox-id">
@@ -178,7 +299,7 @@
 
     <footer>
       <div class="badge-shelf">
-        <a class="badge" href="mailto:jeremie.piellard@gmail.com" title="Mail">
+        <a class="badge" href="mailto:jeremie.piellard@gmail.com" title="Email">
           <svg xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 512 512">
             <path d="M512 85V448H0V85l256 224L512 85zM488 64H24L256 267 488 64z" />
           </svg>
@@ -199,13 +320,13 @@
         </a>
       </div>
     </footer>
-    <script src="script/page.min.js"></script>
-    <script src="script/gl-utils.js"></script>
-    <script src="script/particles.js"></script>
-    <script src="script/obstacle-map.js"></script>
-    <script src="script/parameters.js"></script>
-    <script src="script/fluidify.js"></script>
-    <script src="script/main.js"></script>
+    <script src="script/page.min.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/gl-utils.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/particles.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/obstacle-map.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/parameters.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/fluidify.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
+    <script src="script/main.js?v=2021-04-10T18%3A24%3A01.158Z"></script>
   </body>
 
 </html>
