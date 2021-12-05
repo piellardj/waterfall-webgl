@@ -3,6 +3,7 @@
   "homepage": "https://piellardj.github.io/waterfall-webgl",
   "description": "WebGL particles simulation",
   "scripts": {
+    "pre-commit": "npm run rebuild",
     "build": "ts-node-script src/generate-page.ts",
     "clean": "shx rm -rf docs/* **/*generated.*",
     "rebuild": "npm run clean && npm run build"
