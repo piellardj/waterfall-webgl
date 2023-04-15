@@ -10,6 +10,10 @@ const data = {
         "It is essentially a particle system, with the particles independently falling and bouncing off obstacles. The cartoonish look is achieved by applying a blur and then a threshold to the particles."
     ],
     githubProjectName: "waterfall-webgl",
+    readme: {
+        filepath: path.join(__dirname, "..", "README.md"),
+        branchName: "master"
+    },
     additionalLinks: [
         {
             href: "https://piellardj.github.io/waterfall-webgl2",
