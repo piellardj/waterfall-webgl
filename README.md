@@ -13,3 +13,5 @@ For instance, since in "core" WebGL one can not bind multiple draw targets, the 
 
 
 This is my first WebGL project but also my first time using Javascript, so there are probably lots of mistakes.
+
+[![Donate](https://raw.githubusercontent.com/piellardj/piellardj.github.io/master/images/readme/donate-paypal.svg)](https://www.paypal.com/donate/?hosted_button_id=AF7H7GEJTL95E)
